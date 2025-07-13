@@ -1,5 +1,9 @@
 from generator import generator
 import argparse
+import markdown
+import fitz
+import pymupdf
+import io
 
 def main():
     parser = argparse.ArgumentParser()
@@ -10,7 +14,7 @@ def main():
     )
     
     parser.add_argument(
-        "-n", "--num-portions", 
+        "-n", "--num-columns", 
         type = int, 
         default=1
     )
@@ -36,7 +40,7 @@ def main():
 
     generator(
         margin=args.margin,
-        num_portions=args.num_portions,
+        num_columns=args.num_columns,
         input_path=args.input,
         output_path=args.output,
         heading_color=args.color
@@ -44,3 +48,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
